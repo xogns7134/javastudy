@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시판 가입</title>
+<style>
+	body{
+		background: darkgray;
+	}
+	*{
+		font-size: 20px;
+		text-align: center;
+	}
+	.left {
+		width: 100px;
+		background: lightblue;
+		color: white;
+	}
+	.right {
+		background: gray;
+		color: white;
+	}
+</style>
+</head>
+<body>
+	<h3>게시판가입 화면입니다</h3>
+	<hr color="blue">
+	<a href="bbs.html">게시판정보 페이지로 이동</a>
+	<form action="insert2.jsp">
+		<table border="1">
+			<tr>
+				<td class="left">제목 :</td>
+				<td class="right"><input name="title" class="right"></td>
+			</tr>
+			<tr>
+				<td class="left">내용 :</td>
+				<td class="right">
+				<textarea rows="5" cols="20" name="content" class="right"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="left">이름 :</td>
+				<td class="right"><input name="writer" class="right"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="right">
+					<button type="submit" class="right">게시판가입요청</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
