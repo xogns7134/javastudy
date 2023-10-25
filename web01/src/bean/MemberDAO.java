@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class MemberDAO {
 	Connection con; // 전역변수, global 변수
@@ -87,7 +88,7 @@ public class MemberDAO {
 		return result;
 	}
 
-	public MemberVO search(String id) {
+	public MemberVO one(String id) {
 		MemberVO bag = new MemberVO();
 		// Java-DB 연결 (JDBC) 4단계
 		// 1. 연결할 부품(커넥터, 드라이버) 설정
@@ -123,5 +124,37 @@ public class MemberDAO {
 			System.out.println("에러 발생");
 		}
 		return bag;
+	}
+	public ArrayList<MemberVO> list() {
+		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
+		// Java-DB 연결 (JDBC) 4단계
+		// 1. 연결할 부품(커넥터, 드라이버) 설정
+		try {// 3. 2번에서 연결된 것을 가지고 sql문 생성
+			String sql = "select * from member";
+			String site = "http://www.naver.com";
+			// 해당 부품으로 만들어야함
+			// sql ==> PreparedStatement
+			// site ==> URL
+			PreparedStatement ps = con.prepareStatement(sql);
+			System.out.println("3. sql문 생성 성공");
+
+			// 4. 3번에서 생성된 sql문을 Mysql로 전송
+			ResultSet table = ps.executeQuery(); // 테이블로 mysql로 받아온다
+			System.out.println("4. sql문 mysql로 전송 성공");
+			while (table.next()) { // table 안에 검색결과 row가 있는지 체크
+				MemberVO bag = new MemberVO();
+				bag.setId(table.getString("id")); // ()안에 column명 써주기
+				bag.setPw(table.getString("pw"));
+				bag.setName(table.getString("name"));
+				bag.setTel(table.getString("tel"));
+				list.add(bag);
+			}
+			dbcp.freeConnection(con, ps, table);
+		} catch (Exception e) {
+			// Exception == 치명적인 에러와 관련됨
+			e.printStackTrace();
+			System.out.println("에러 발생");
+		}
+		return list;
 	}
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원 수정</title>
+<style>
+	body{
+		background: darkgray;
+	}
+	*{
+		font-size: 20px;
+		text-align: center;
+	}
+	.left {
+		width: 100px;
+		background: lightblue;
+		color: white;
+	}
+	.right {
+		background: gray;
+		color: white;
+	}
+</style>
+</head>
+<body>
+	<h3>회원수정 화면입니다</h3>
+	<hr color="blue">
+	<a href="member.html">회원정보 페이지로 이동</a>
+	<form action="update.jsp">
+		<table border="1">
+			<tr>
+				<td class="left">아이디 :</td>
+				<td class="right"><input name="id" class="right"></td>
+			</tr>
+			<tr>
+				<td class="left">전화번호 :</td>
+				<td class="right"><input name="tel" class="right"></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="right">
+					<button type="submit" class="right">회원수정요청</button>
+					<!-- Ctrl + Shift + / = 주석 달기  -->
+					<!-- form 안에 들어있는 버튼은 전송용 버튼 -->
+					<!-- type="submit"은 생략할 수 있음 -->
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
