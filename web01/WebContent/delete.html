@@ -2,45 +2,51 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 탈퇴</title>
+<title>Insert title here</title>
 <style>
 	body{
-		background: darkgray;
+		background: lime;
 	}
 	*{
 		font-size: 20px;
 		text-align: center;
 	}
-	.left {
+	.left { 
+		/* 여러개를 선택해서 지정하고 싶을 때 클래스를 사용. 클래스 중 left에 해당하는 것만 스타일을 지정해라. */
+		/* 클래스 선택은 .클래스명 */
 		width: 100px;
-		background: lightblue;
+		background: blue;
 		color: white;
 	}
-	.right {
-		background: gray;
-		color: white;
+	#bottom {
+		background: red;
+		color: yellow;
+	}
+	input{
+		background: greenyellow;
 	}
 </style>
 </head>
 <body>
-	<h3>회원탈퇴 화면입니다</h3>
-	<hr color="blue">
-	<a href="member.html">회원정보 페이지로 이동</a>
-	<form action="delete.jsp">
-		<table border="1">
+		<h3>회원탈퇴화면입니다.</h3>
+		<hr color="red">
+		<a href="index.html">첫페이지로 이동</a>
+		<a href="member.html">회원정보페이지로 이동</a>
+		<form action="delete.jsp">
+		<table border="1" align="center">
 			<tr>
-				<td class="left">아이디 :</td>
-				<td class="right"><input name="id" class="right"></td>
+				<td>아이디: </td>
+				<td>
+					<input name="id">
+				</td>
 			</tr>
+			
 			<tr>
-				<td colspan="2" class="right">
-					<button type="submit" class="right">회원탈퇴요청</button>
-					<!-- Ctrl + Shift + / = 주석 달기  -->
-					<!-- form 안에 들어있는 버튼은 전송용 버튼 -->
-					<!-- type="submit"은 생략할 수 있음 -->
+				<td colspan="2">
+					<button type="submit">회원탈퇴요청</button>
 				</td>
 			</tr>
 		</table>
-	</form>
+		</form>
 </body>
 </html>

@@ -4,10 +4,12 @@
     <%
     	String no = request.getParameter("no");
     	BbsDAO dao = new BbsDAO();
-    	int result = dao.delete(Integer.parseInt(no));
-    	String result1 = "삭제 실패";
-    	if (result == 1) {
-    		result1 = "삭제 완료";
+    	int result = dao.delete(Integer.parseInt(no)); //result값이 반환되어도착함. 
+    	String resultText = "삭제실패";
+    	String resultImg = "3.png";
+    	if(result == 1){
+    		resultText = "삭제성공";
+    		resultImg = "1.png";
     	}
     %>
 <!DOCTYPE html>
@@ -16,7 +18,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-<h3><%=result1 %></h3>
+<body bgcolor="red">
+<%= resultText %> <img src="img/<%= resultImg %>">
+<!-- <img src="img/1.png"> -->
 </body>
 </html>

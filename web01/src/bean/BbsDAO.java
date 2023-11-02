@@ -3,6 +3,7 @@ package bean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 
 
@@ -19,6 +20,33 @@ public class BbsDAO { // member테이블에 crud를 하고 싶으면 MemberDAO�
 		}
 	}
 	
+	
+	public ArrayList<BbsVO> list() {
+//		int result = 0;
+		ArrayList<BbsVO> list = new ArrayList<>();
+		
+		try {
+			String sql = "select * from bbs";
+			PreparedStatement ps = con.prepareStatement(sql); //
+			System.out.println("3. sql문 생성 성공!!");
+
+			ResultSet table = ps.executeQuery(); // 테이블로 mysql로 받아온다.
+			System.out.println("4. SQL문 mySQL로 전송 성공!!");
+			while(table.next()) { // table안에 검색결과인 row가 있는지 체크
+				BbsVO bag = new BbsVO();
+				bag.setNo(table.getInt(1));
+				bag.setTitle(table.getString(2));
+				bag.setContent(table.getString(3));
+				bag.setWriter(table.getString(4));
+				list.add(bag);
+			} 
+			dbcp.freeConnection(con, ps, table);//반납 
+		} catch (Exception e) { // Exception == Error
+			e.printStackTrace();// 에러정보를 추적해서 프린트해줘.!
+			System.out.println("에러발생함.!!!!");
+		}
+		return list;
+	} // list
 	public BbsVO one(int no) {
 		BbsVO bag = new BbsVO();
 		try {

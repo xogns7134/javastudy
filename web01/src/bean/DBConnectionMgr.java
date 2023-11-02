@@ -28,7 +28,7 @@ import java.sql.*;
 import java.util.Properties;
 import java.util.Vector;
 public class DBConnectionMgr {
-    private Vector connections = new Vector(10);
+    private Vector connections = new Vector(10); //Connection 10
     private String _driver = "com.mysql.cj.jdbc.Driver",
     _url = "jdbc:mysql://localhost:3306/shop?useUnicode=true&serverTimezone=Asia/Seoul",
     _user = "root",
