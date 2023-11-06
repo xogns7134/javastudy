@@ -1,5 +1,5 @@
 <%@page import="com.sun.org.apache.xalan.internal.xsltc.compiler.util.ResultTreeType"%>
-<%@page import="bean.MemberDAO"%>
+<%@page import="bean.CarDAO"%>
 <%@page import="bean.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -12,17 +12,17 @@
     <jsp:setProperty property="*" name="bag"/>
     
     <%
-    	MemberDAO dao = new MemberDAO();
-    	int result = dao.insert(bag);
-    	// int ( 1 / 0) 중 하나의 값이 넘어옴
-    	// 성공시 1, 실패시 0
-    	String resultText = "";
-    	if(result == 1){
-    		resultText = "회원가입 성공";
-    	}else{
-    		resultText = "회원가입 실패";
-    	}
-    %>
+        	CarDAO dao = new CarDAO();
+            	int result = dao.insert(bag);
+            	// int ( 1 / 0) 중 하나의 값이 넘어옴
+            	// 성공시 1, 실패시 0
+            	String resultText = "";
+            	if(result == 1){
+            		resultText = "회원가입 성공";
+            	}else{
+            		resultText = "회원가입 실패";
+            	}
+        %>
     
     <%
     	// String id = request.getParameter("id");

@@ -1,5 +1,5 @@
 <%@page import="bean.MemberVO"%>
-<%@page import="bean.MemberDAO"%>
+<%@page import="bean.CarDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!--  
@@ -9,11 +9,11 @@
     	3. 요청에 대한 결과를 html을 만든다.
     -->
     <%
-		String id = request.getParameter("id"); //id=apple   
-		
-		MemberDAO dao = new MemberDAO();
-		MemberVO bag = dao.one(id);		
-    	//자동import : 클릭하고 나서 컨트롤 + 쉬프트 + m
+    	String id = request.getParameter("id"); //id=apple   
+    		
+    		CarDAO dao = new CarDAO();
+    		MemberVO bag = dao.one(id);		
+        	//자동import : 클릭하고 나서 컨트롤 + 쉬프트 + m
     %>
 <!DOCTYPE html>
 <html>

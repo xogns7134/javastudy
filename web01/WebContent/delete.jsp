@@ -1,4 +1,4 @@
-<%@page import="bean.MemberDAO"%>
+<%@page import="bean.CarDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!--  
@@ -8,15 +8,14 @@
     	3. 요청에 대한 결과를 html을 만든다.
     -->
     <%
-		String id = request.getParameter("id"); //id=apple   
-		
-		MemberDAO dao = new MemberDAO();
-		int result = dao.delete(id); //1, 0
-		String resultText = "회원탈퇴실패함.";
-		if(result == 1){
-			resultText = "회원탈퇴성공함.";
-		}
-		
+    	String id = request.getParameter("id"); //id=apple   
+    		
+    		CarDAO dao = new CarDAO();
+    		int result = dao.delete(id); //1, 0
+    		String resultText = "회원탈퇴실패함.";
+    		if(result == 1){
+    	resultText = "회원탈퇴성공함.";
+    		}
     %>
 <!DOCTYPE html>
 <html>
